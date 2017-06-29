@@ -31,7 +31,7 @@ public class PieDataSet extends DataSet<PieEntry> implements IPieDataSet {
     private float mValueLinePart2Length = 0.4f;
     private boolean mValueLineVariableLength = true;
     private Integer mHighlightColor = null;
-    private float mDrawValuePercentThreshold = 2.0f;
+    private float mDrawValuePercentThreshold = 0.0f;
 
     public PieDataSet(List<PieEntry> yVals, String label) {
         super(yVals, label);
