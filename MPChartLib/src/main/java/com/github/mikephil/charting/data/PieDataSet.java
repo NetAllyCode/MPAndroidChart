@@ -31,6 +31,7 @@ public class PieDataSet extends DataSet<PieEntry> implements IPieDataSet {
     private float mValueLinePart2Length = 0.4f;
     private boolean mValueLineVariableLength = true;
     private Integer mHighlightColor = null;
+    private float mDrawValuePercentThreshold = 2.0f;
 
     public PieDataSet(List<PieEntry> yVals, String label) {
         super(yVals, label);
@@ -253,6 +254,16 @@ public class PieDataSet extends DataSet<PieEntry> implements IPieDataSet {
         this.mHighlightColor = color;
     }
 
+
+    /** Draw values on chart if the percent value is equal to or exceeds this percent threshold */
+    @Override public float getDrawValuePercentThreshold() {
+        return mDrawValuePercentThreshold;
+    }
+
+    public void setDrawValuePercentThreshold(float drawValuePercentThreshold)
+    {
+        this.mDrawValuePercentThreshold = drawValuePercentThreshold;
+    }
 
     public enum ValuePosition {
         INSIDE_SLICE,
