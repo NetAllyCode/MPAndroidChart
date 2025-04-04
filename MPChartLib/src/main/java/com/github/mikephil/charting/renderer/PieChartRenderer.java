@@ -501,6 +501,12 @@ public class PieChartRenderer extends DataRenderer {
                 String formattedValue = formatter.getPieLabel(value, entry);
                 String entryLabel = entry.getLabel();
 
+                // Do not draw text if percent value is less than the threshold
+                if (entry.getY() / yValueSum * 100f < dataSet.getDrawValuePercentThreshold()) {
+                    xIndex++;
+                    continue;
+                }
+
                 final float sliceXBase = (float) Math.cos(transformedAngle * Utils.FDEG2RAD);
                 final float sliceYBase = (float) Math.sin(transformedAngle * Utils.FDEG2RAD);
 
